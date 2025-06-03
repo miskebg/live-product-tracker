@@ -2,9 +2,13 @@
 // admin/settings-page.php
 
 function lpt_register_settings() {
-    register_setting('lpt_settings_group', 'lpt_show_viewers');
-    register_setting('lpt_settings_group', 'lpt_enable_favorites');
-    register_setting('lpt_settings_group', 'lpt_show_cart_count');
+    register_setting('lpt_settings_group', 'lpt_show_viewers', 'lpt_sanitize_checkbox');
+    register_setting('lpt_settings_group', 'lpt_enable_favorites', 'lpt_sanitize_checkbox');
+    register_setting('lpt_settings_group', 'lpt_show_cart_count', 'lpt_sanitize_checkbox');
+}
+
+function lpt_sanitize_checkbox($value) {
+    return ($value === '1') ? '1' : '0';
 }
 
 function lpt_settings_page() {
