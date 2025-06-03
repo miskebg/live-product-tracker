@@ -35,3 +35,11 @@ To use shortcodes directly in theme PHP files (like `single-product.php`), use:
 <?php echo do_shortcode('[favorite_button]'); ?>
 <?php echo do_shortcode('[product_favorites_count]'); ?>
 <?php echo do_shortcode('[product_cart_count]'); ?>
+
+== Changelog ==
+
+= 1.1 =
+* Dodata funkcionalnost za podešavanja u admin panelu
+* Iako su shortcode-ovo postavljeni na prozivodu ili u php, moguce je iskljcuti ih u admin delu
+* Poboljšano praćenje pregleda i omiljenih proizvoda
+* Popravljeni sitni bagovi sa AJAX pozivima

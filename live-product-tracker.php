@@ -2,9 +2,18 @@
 /**
  * Plugin Name: Live Product Tracker
  * Description: Prikazuje koliko korisnika trenutno gleda proizvod, dodalo u omiljene ili korpu.
- * Version: 1.0
- * Author: Milos Komljen miloskomljen2008@gmail.com
+ * Version: 1.1
+ * Author: Milos Komljen
+ * Author URI: https://github.com/miskebg/live-product-tracker
+ * License: GPLv2 or later
+ * License URI: https://www.gnu.org/licenses/gpl-2.0.html
+ *
+ * 
+ * 
  */
+
+// Include settings page
+require_once plugin_dir_path(__FILE__) . 'admin/settings-page.php';
 
 if (!defined('ABSPATH')) exit;
 
@@ -48,6 +57,7 @@ class LiveProductTracker {
     }
 
     public function display_viewers() {
+        if (!get_option('lpt_show_viewers')) return '';
         if (!is_product()) return '';
         $product_id = get_the_ID();
         $key = 'lpt_view_' . $product_id;
@@ -63,6 +73,7 @@ class LiveProductTracker {
     }
 
     public function favorite_button() {
+        if (!get_option('lpt_enable_favorites')) return '';
         if (!is_user_logged_in() || !is_product()) return '';
         $user_id = get_current_user_id();
         $product_id = get_the_ID();
@@ -90,6 +101,7 @@ class LiveProductTracker {
     }
 
     public function favorites_count() {
+        if (!get_option('lpt_enable_favorites')) return '';
         if (!is_product()) return '';
         $product_id = get_the_ID();
         $users = get_users();
@@ -115,6 +127,7 @@ class LiveProductTracker {
     }
 
     public function display_cart_count() {
+        if (!get_option('lpt_show_cart_count')) return '';
         if (!is_product()) return '';
         $product_id = get_the_ID();
         $key = 'lpt_cart_' . $product_id;
@@ -130,5 +143,20 @@ class LiveProductTracker {
     }
 }
 
+// Admin settings menu
+add_action('admin_menu', function() {
+    add_options_page(
+        'Live Product Tracker Settings',
+        'Live Product Tracker',
+        'manage_options',
+        'live-product-tracker',
+        'lpt_settings_page'
+    );
+});
+
+// Register settings
+add_action('admin_init', 'lpt_register_settings');
+
+add_filter('woocommerce_short_description', 'do_shortcode');
+
 new LiveProductTracker();
-?>
