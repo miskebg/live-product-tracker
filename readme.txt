@@ -1,5 +1,5 @@
 === Live Product Tracker ===
-Contributors: wpdeveloper  
+Contributors: Milos Komljen  
 Tags: WooCommerce, product views, favorites, cart activity  
 Requires at least: 5.0  
 Tested up to: 6.5  
