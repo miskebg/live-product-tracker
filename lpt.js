@@ -1,11 +1,11 @@
 jQuery(document).ready(function($) {
-    $(document).on('click', '.lpt-fav-btn', function(e) {
+    $(document).on('click', '.liveprtr-fav-btn', function(e) {
         e.preventDefault();
         var btn = $(this);
         var productId = btn.data('product');
-        $.post(lpt_ajax.ajax_url, {
-            action: 'toggle_favorite',
-            nonce: lpt_ajax.nonce,
+        $.post(liveprtr_ajax.ajax_url, {
+            action: 'liveprtr_toggle_favorite',
+            nonce: liveprtr_ajax.nonce,
             product_id: productId
         }, function(response) {
             if (response.success) {
