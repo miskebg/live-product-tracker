@@ -1,4 +1,4 @@
-=== Live Product Tracker ===
+re=== Live Product Tracker ===
 Contributors: MiskeBG
 Tags: WooCommerce, product views, favorites, cart activity
 Requires at least: 5.0
