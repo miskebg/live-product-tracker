@@ -3,7 +3,7 @@ Contributors: MiskeBG
 Tags: WooCommerce, product views, favorites, cart activity
 Requires at least: 5.0
 Tested up to: 6.8
-Stable tag: 1.1
+Stable tag: 1.2
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -37,7 +37,7 @@ To use shortcodes directly in theme PHP files (like `single-product.php`), use:
 <?php echo do_shortcode('[product_cart_count]'); ?>
 == Changelog ==
 
-= 1.1 =
+= 1.2 =
 
 Added admin panel settings
 
